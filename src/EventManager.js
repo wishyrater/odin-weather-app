@@ -13,7 +13,9 @@ const EventManager = (() => {
     const handleFormEvent = (e) => {
         e.preventDefault();
         const searchQuery = searchInput.value;
-        WeatherAPIClient.fetchForecast(searchQuery);
+        WeatherAPIClient.fetchForecast(searchQuery).then((data) => {
+            console.log(data.description);
+        });
     };
 
     return { setFormEventListener };
