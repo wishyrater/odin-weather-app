@@ -1,4 +1,5 @@
 import WeatherAPIClient from "./WeatherAPIClient";
+import GiphyAPIClient from "./GiphyAPIClient";
 
 const EventManager = (() => {
     const form = document.querySelector('form');
@@ -10,13 +11,13 @@ const EventManager = (() => {
         });
     };
 
-    const handleFormEvent = (e) => {
+    const handleFormEvent = async (e) => {
         e.preventDefault();
         const searchQuery = searchInput.value;
-        WeatherAPIClient.fetchForecast(searchQuery)
-            .then((data) => {
-                console.log(data);
-            })
+        const weatherData = await WeatherAPIClient.fetchForecast(searchQuery);
+        // giphyData.data.url for the gif url
+        const giphyData = await GiphyAPIClient.fetchGif(weatherData.currentConditions.icon);
+        console.log(weatherData);
     };
 
     return { setFormEventListener };
