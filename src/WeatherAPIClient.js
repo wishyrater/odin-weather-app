@@ -7,7 +7,6 @@ const WeatherAPIClient = (() => {
         try {
             const response = await fetch(`${endpoint}${location}?key=${apiKey}`);
             const weatherData = await response.json();
-            console.log(weatherData);
             return weatherData;
         } catch (error) {
             console.error(error);
