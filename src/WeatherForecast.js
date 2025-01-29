@@ -10,10 +10,10 @@ export default class WeatherForecast {
             "description": this._data.description,
             "icon": this._data.currentConditions.icon,
             "temp": this._data.currentConditions.temp,
-            "feelsLike": this._data.currentConditions.feelsLike,
+            "feelsLike": this._data.currentConditions.feelslike,
             "precipitation": this._data.currentConditions.precip,
             "humidity": this._data.currentConditions.humidity,
-            "wind": this._data.currentConditions.wind,
+            "wind": this._data.currentConditions.windgust,
             "uvindex": this._data.currentConditions.uvindex,
         };
         return currentConditions;
