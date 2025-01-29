@@ -11,8 +11,8 @@ export default class WeatherForecast {
             "icon": this._data.currentConditions.icon,
             "temp": this._data.currentConditions.temp,
             "feelsLike": this._data.currentConditions.feelslike,
-            "precipitation": this._data.currentConditions.precip,
-            "humidity": this._data.currentConditions.humidity,
+            "precipitation": (Math.floor(this._data.currentConditions.precip * 100)).toFixed(2) + '%',
+            "humidity": this._data.currentConditions.humidity + '%',
             "wind": this._data.currentConditions.windgust,
             "uvindex": this._data.currentConditions.uvindex,
         };
@@ -22,6 +22,7 @@ export default class WeatherForecast {
     getDailyForecast = () => {
         const numDays = 7;
         const dailyForecast = [];
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         for (let i = 0; i < numDays; i++) {
             const todaysData = this._data.days.at(i);
             const date = new Date(todaysData.datetime);
@@ -29,14 +30,14 @@ export default class WeatherForecast {
             if (i === 0) {
                 dayOfWeek = 'Today';
             } else {
-                dayOfWeek = date.getDay();
+                dayOfWeek = daysOfWeek[date.getDay()];
             }
             const day = {
                 "dayOfWeek": dayOfWeek,
                 "icon": todaysData.icon,
                 "low": todaysData.tempmin,
                 "high": todaysData.tempmax,
-                "precipitation": todaysData.precip,
+                "precipitation": (todaysData.precip * 100).toFixed(2) + '%',
             };
             dailyForecast.push(day);
         }
