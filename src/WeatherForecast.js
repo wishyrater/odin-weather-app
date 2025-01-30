@@ -2,7 +2,7 @@ export default class WeatherForecast {
     
     constructor(data) {
         this._data = data;
-        this._resolvedAddress = data.resolvedAddress;
+        this._resolvedAddress = data.resolvedaddress;
     }
 
     getCurrentConditions = () => {
