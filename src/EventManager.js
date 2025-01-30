@@ -1,6 +1,7 @@
 import WeatherAPIClient from "./WeatherAPIClient";
 import GiphyAPIClient from "./GiphyAPIClient";
 import DataHandler from "./DataHandler";
+import UIRenderer from "./UIRenderer";
 
 const EventManager = (() => {
     const form = document.querySelector('form');
@@ -23,6 +24,8 @@ const EventManager = (() => {
         console.log(forecast.getCurrentConditions());
         console.log(forecast.getDailyForecast());
 
+        UIRenderer.renderCurrentConditions(forecast.getCurrentConditions());
+        UIRenderer.renderForecast(forecast.getDailyForecast());
     };
 
     return { setFormEventListener };
