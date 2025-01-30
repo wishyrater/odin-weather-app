@@ -5,9 +5,8 @@ const UIRenderer = (() => {
     const forecastContainer = document.querySelector('.forecast-container');
 
     const renderCurrentConditions = (currentConditions) => {
-
         currentConditionsContainer.innerHTML = '';
-
+        
         const html = `
             <div class="resolved-location-container">${currentConditions.resolvedLocation}</div>
             <div class="icon-container"><img src="${currentConditions.icon}"/></div>
