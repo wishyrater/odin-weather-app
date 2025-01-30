@@ -22,6 +22,7 @@ const EventManager = (() => {
         console.log(weatherData);
         console.log(forecast.getCurrentConditions());
         console.log(forecast.getDailyForecast());
+
     };
 
     return { setFormEventListener };

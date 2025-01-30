@@ -13,7 +13,7 @@ export default class WeatherForecast {
             "feelsLike": this._data.currentConditions.feelslike,
             "precipitation": (Math.floor(this._data.currentConditions.precip * 100)).toFixed(2) + '%',
             "humidity": this._data.currentConditions.humidity + '%',
-            "wind": this._data.currentConditions.windgust,
+            "wind": this._data.currentConditions.windspeed,
             "uvindex": this._data.currentConditions.uvindex,
         };
         return currentConditions;
