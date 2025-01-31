@@ -2,11 +2,11 @@ export default class WeatherForecast {
     
     constructor(data) {
         this._data = data;
-        this._resolvedAddress = data.resolvedaddress;
     }
 
     getCurrentConditions = () => {
         const currentConditions = {
+            "resolvedAddress": this._data.resolvedAddress,
             "description": this._data.description,
             "icon": this._data.currentConditions.icon,
             "temp": this._data.currentConditions.temp,
