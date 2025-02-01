@@ -8,15 +8,37 @@ const UIRenderer = (() => {
         currentConditionsContainer.innerHTML = '';
         
         const html = `
-            <div class="resolved-location-container">${currentConditions.resolvedAddress}</div>
-            <div class="icon-container"><img src="${currentConditions.icon}"/></div>
-            <div class="description-container">${currentConditions.description}</div>
-            <div class="temperature-container">Temperature: ${currentConditions.temp}&#176;</div>
-            <div class="feelslike-container">Feels like: ${currentConditions.feelsLike}&#176;</div>
-            <div class="precipitation-container">Precipitation: ${currentConditions.precipitation}</div>
-            <div class="humidity-container">Humidity: ${currentConditions.humidity}</div>
-            <div class="wind-container">Wind: ${currentConditions.wind}</div>
-            <div class="uvindex-container">UV index: ${currentConditions.uvindex}</div>
+            <div class="current-conditions-header">
+                <div class="resolved-location-container">${currentConditions.resolvedAddress}</div>
+                <div class="icon-container"><img src="${currentConditions.icon}"/></div>
+                <div class="description-container">${currentConditions.description}</div>
+            </div>
+            <table class="current-conditions-data" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="data-label">Temperature</td>
+                    <td class="data-value">${currentConditions.temp}&#176;</td>
+                </tr>
+                <tr>
+                    <td class="data-label">Feels like</td>
+                    <td class="data-value">${currentConditions.feelsLike}&#176;</td>
+                </tr>
+                <tr>
+                    <td class="data-label">Precipitation</td>
+                    <td class="data-value">${currentConditions.precipitation}</td>
+                </tr>
+                <tr>
+                    <td class="data-label">Humidity</td>
+                    <td class="data-value">${currentConditions.humidity}</td>
+                </tr>
+                <tr>
+                    <td class="data-label">Wind</td>
+                    <td class="data-value">${currentConditions.wind} kph</td>
+                </tr>
+                <tr>
+                    <td class="data-label">UV Index</td>
+                    <td class="data-value">${currentConditions.uvindex}</td>
+                </tr>
+            </table>
         `.trim();
 
         currentConditionsContainer.innerHTML = html;

@@ -14,15 +14,18 @@ header {
 
 .content-container {
     display: grid;
+    gap: 10px;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 1fr min-content;
 
     width: 700px;
-    height: 400px;
+    height: 450px;
 }
 
 .current-conditions-container {
     border: 1px solid blue;
+    padding: 20px;
+    line-height: 1.5em;
 
     grid-column: 1 / 2;
     grid-row: 1 / 2;
@@ -33,10 +36,15 @@ header {
 
     grid-column: 2 / 3;
     grid-row: 1 / 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .forecast-container {
     border: 1px solid green;
+    padding: 10px;
 
     grid-column: 1 / 3;
     grid-row: 2 / 3;
@@ -44,4 +52,38 @@ header {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
+    align-items: center;
+}
+
+.current-conditions-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.current-conditions-header .icon-container {
+    justify-self: end;
+}
+
+.description-container {
+    grid-column: 1 / 3;
+}
+
+.current-conditions-data {
+    border: 0;
+    padding: 0 20px 0 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.data-value {
+    text-align: right;
+}
+
+.day-card {
+    display: grid;
+    gap: 4px;
+    justify-items: center;
+    align-items: center;
+    grid-auto-rows: min-content;
+    border: 1px solid yellow;
 }
