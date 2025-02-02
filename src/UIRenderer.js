@@ -1,3 +1,4 @@
+import { getIcon } from './icons.js';
 const UIRenderer = (() => {
 
     const currentConditionsContainer = document.querySelector('.current-conditions-container');
@@ -6,11 +7,13 @@ const UIRenderer = (() => {
 
     const renderCurrentConditions = (currentConditions) => {
         currentConditionsContainer.innerHTML = '';
+
+        const icon = getIcon(currentConditions.icon);
         
         const html = `
             <div class="current-conditions-header">
                 <div class="resolved-location-container">${currentConditions.resolvedAddress}</div>
-                <div class="icon-container"><img src="${currentConditions.icon}"/></div>
+                <div class="icon-container"><img src="${icon}" width="70px"/></div>
                 <div class="description-container">${currentConditions.description}</div>
             </div>
             <table class="current-conditions-data" cellpadding="0" cellspacing="0">
@@ -49,10 +52,11 @@ const UIRenderer = (() => {
     };
 
     const createDayCard = (dayData) => {
+        const icon = getIcon(dayData.icon);
         const html = `
             <div class="day-card">
                 <div class="day-of-week">${dayData.dayOfWeek}</div>
-                <div class="day-icon"><img src="${dayData.icon}"/></div>
+                <div class="day-icon"><img src="${icon}" width="50px" height="50px"/></div>
                 <div class="low-high">${dayData.low}&#176; / ${dayData.high}&#176;</div>
                 <div class="day-precipitation">${dayData.precipitation}</div>
             </div>
