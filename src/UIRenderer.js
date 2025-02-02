@@ -48,7 +48,13 @@ const UIRenderer = (() => {
     };
 
     const renderGif = (gif) => {
+        const html = `
+            <div class="gif">
+                <img src="${gif}"/>
+            </div>
+        `.trim();
 
+        gifContainer.innerHTML += html;
     };
 
     const createDayCard = (dayData) => {
