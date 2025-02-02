@@ -68,7 +68,6 @@ const UIRenderer = (() => {
     const renderForecast = (dailyForecast) => {
         forecastContainer.innerHTML = '';
         for (let i = 0; i < dailyForecast.length; i++) {
-            console.log(dailyForecast[i]);
             const dayCard = createDayCard(dailyForecast[i]);
             forecastContainer.innerHTML += dayCard;
         }

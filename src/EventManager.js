@@ -17,15 +17,16 @@ const EventManager = (() => {
         e.preventDefault();
         const searchQuery = searchInput.value;
         const weatherData = await WeatherAPIClient.fetchForecast(searchQuery);
-        const forecast = DataHandler.handleWeatherForecast(weatherData);
-        // giphyData.data.url for the gif url
-        const giphyData = await GiphyAPIClient.fetchGif(weatherData.currentConditions.icon);
-        console.log(weatherData);
-        console.log(forecast.getCurrentConditions());
-        console.log(forecast.getDailyForecast());
+        if (weatherData !== undefined) {
+            const forecast = DataHandler.handleWeatherForecast(weatherData);
+            UIRenderer.renderCurrentConditions(forecast.getCurrentConditions());
+            UIRenderer.renderForecast(forecast.getDailyForecast());
+            // giphyData.data.url for the gif url
+            const giphyData = await GiphyAPIClient.fetchGif(weatherData.currentConditions.icon);
+        }
+        
 
-        UIRenderer.renderCurrentConditions(forecast.getCurrentConditions());
-        UIRenderer.renderForecast(forecast.getDailyForecast());
+
     };
 
     return { setFormEventListener };
