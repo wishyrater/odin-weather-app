@@ -13,7 +13,7 @@ const UIRenderer = (() => {
         const html = `
             <div class="current-conditions-header">
                 <div class="resolved-location-container">${currentConditions.resolvedAddress}</div>
-                <div class="icon-container"><img src="${icon}" width="70px"/></div>
+                <div class="icon-container"><img src="${icon}" height="50px"/></div>
                 <div class="description-container">${currentConditions.description}</div>
             </div>
             <table class="current-conditions-data" cellpadding="0" cellspacing="0">

@@ -82,7 +82,7 @@ header {
 
 .current-conditions-header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr min-content;
 }
 
 .current-conditions-header .icon-container {
