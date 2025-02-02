@@ -5,7 +5,11 @@ const DataHandler = (() => {
         return new WeatherForecast(weatherData);
     };
 
-    return { handleWeatherForecast };
+    const handleGiphyResponse = (giphyData) => {
+        return giphyData.data.images.original.url;
+    }
+
+    return { handleWeatherForecast, handleGiphyResponse };
 })();
 
 export default DataHandler;

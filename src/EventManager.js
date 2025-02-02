@@ -23,7 +23,9 @@ const EventManager = (() => {
             UIRenderer.renderForecast(forecast.getDailyForecast());
             // giphyData.data.url for the gif url
             const giphyData = await GiphyAPIClient.fetchGif(weatherData.currentConditions.icon);
+            console.log(giphyData);
             const gif = DataHandler.handleGiphyResponse(giphyData);
+            console.log(gif);
             UIRenderer.renderGif(gif);
         }
         

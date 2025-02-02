@@ -54,7 +54,7 @@ const UIRenderer = (() => {
             </div>
         `.trim();
 
-        gifContainer.innerHTML += html;
+        gifContainer.innerHTML = html;
     };
 
     const createDayCard = (dayData) => {
