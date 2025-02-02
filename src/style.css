@@ -6,27 +6,69 @@ body {
     justify-items: center;
     background-color: #121212;
     color: whitesmoke;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 header {
     margin: 20px 0 20px 0;
 }
 
+.hidden,
+.current-conditions-container,
+.gif-container,
+.forecast-container {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
 .content-container {
     display: grid;
     gap: 10px;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 300px min-content;
+    grid-template-rows: 320px min-content;
 
-    width: 700px;
+    width: 800px;
     height: 450px;
+}
 
+.search-container {
+    width: 400px;
+}
 
+form {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px;
+    grid-template-columns: 1fr 100px;
+}
+
+#location {
+    padding: 4px;
+    border-radius: 8px;
+}
+
+#submit-button {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+}
+
+#submit-button:hover {
+    cursor: pointer;
 }
 
 .current-conditions-container {
     padding: 20px;
     line-height: 1.5em;
+    font-size: 14px;
 
     grid-column: 1 / 2;
     grid-row: 1 / 2;
@@ -38,6 +80,8 @@ header {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+
+    display: grid;
 }
 
 .resolved-location-container {
@@ -52,6 +96,9 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
 
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
@@ -59,15 +106,6 @@ header {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.gif-container {
-    max-width: 100%;
-    max-height: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .gif {
@@ -78,11 +116,13 @@ header {
 
 .forecast-container {
     padding: 10px;
+    font-size: 14px;
 
     grid-column: 1 / 3;
     grid-row: 2 / 3;
 
     display: grid;
+    gap: 5px;
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
     align-items: center;
@@ -106,6 +146,7 @@ header {
 
 .description-container {
     grid-column: 1 / 3;
+    opacity: 0.8;
 }
 
 .current-conditions-data {

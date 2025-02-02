@@ -45,6 +45,7 @@ const UIRenderer = (() => {
         `.trim();
 
         currentConditionsContainer.innerHTML = html;
+        currentConditionsContainer.classList.add('visible');
     };
 
     const renderGif = (gif) => {
@@ -55,6 +56,7 @@ const UIRenderer = (() => {
         `.trim();
 
         gifContainer.innerHTML = html;
+        gifContainer.classList.add('visible');
     };
 
     const createDayCard = (dayData) => {
@@ -77,6 +79,8 @@ const UIRenderer = (() => {
             const dayCard = createDayCard(dailyForecast[i]);
             forecastContainer.innerHTML += dayCard;
         }
+
+        forecastContainer.classList.add('visible');
     };
 
     return { renderCurrentConditions, renderGif, renderForecast };
